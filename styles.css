@@ -1,0 +1,327 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+}
+
+body {
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 62.5em;
+  padding-top: 1.875em;
+  margin: 0 auto;
+}
+
+header > *, main > *, footer > * {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375em;
+}
+
+section {
+  margin-bottom: 0.9375em;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+header i {
+  font-size: 1.5em;
+  margin-left: auto;
+  cursor: pointer;
+  color: #bfbfbf;
+}
+header .nav-container nav {
+  display: none;
+  background-color: #3b3054;
+  position: absolute;
+  width: 90%;
+  left: 50%;
+  top: calc(100% + 15px);
+  transform: translateX(-50%);
+  flex-direction: column;
+  padding: 0 1.25em;
+  border-radius: 10px;
+}
+header .nav-container nav.show {
+  display: flex;
+}
+header .nav-container nav ul {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #9e9aa7;
+  padding: 0.9375rem 0;
+}
+header .nav-container nav ul:last-child {
+  border: none;
+}
+header .nav-container nav ul li a {
+  display: block;
+  text-align: center;
+  padding: 0.9375rem;
+  font-weight: bold;
+  color: white;
+  font-size: 0.9rem;
+}
+
+section.welcome {
+  padding-top: 0.625em;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  overflow-x: hidden;
+}
+section.welcome > * {
+  text-align: center;
+}
+section.welcome img {
+  width: 150%;
+}
+section.welcome h2 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #35323e;
+}
+section.welcome p {
+  color: #bfbfbf;
+  line-height: 1.7;
+}
+section.welcome a {
+  padding: 15px 0;
+  width: 50%;
+  margin: 0 auto;
+}
+
+section.shortener-section {
+  margin-top: 8.4375rem;
+  margin-bottom: 0;
+  position: relative;
+}
+section.shortener-section::before {
+  content: "";
+  position: absolute;
+  background-color: #F0F1F6;
+  width: 100vw;
+  height: 100%;
+  z-index: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+section.shortener-section form#shortener {
+  z-index: 2;
+  position: relative;
+  border-radius: 10px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #3b3054;
+  padding: 1.25em;
+  transform: translateY(-50%);
+}
+section.shortener-section form#shortener fieldset {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+section.shortener-section form#shortener fieldset > * {
+  border-radius: 10px;
+  height: 45px;
+}
+section.shortener-section form#shortener fieldset input {
+  padding: 15px;
+  border: none;
+}
+section.shortener-section form#shortener fieldset input:focus {
+  outline: none;
+}
+
+section.features {
+  display: grid;
+  grid-template-columns: 1fr;
+  position: relative;
+  margin-bottom: 0;
+}
+section.features > * {
+  z-index: 1;
+}
+section.features::before {
+  content: "";
+  position: absolute;
+  background-color: #F0F1F6;
+  width: 100vw;
+  height: 100%;
+  z-index: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+section.features .features-title {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9375rem;
+}
+section.features .features-title > * {
+  text-align: center;
+}
+section.features .features-title h2 {
+  font-weight: bold;
+  font-size: 1.8em;
+}
+section.features .features-title p {
+  color: #9e9aa7;
+  line-height: 1.7;
+}
+section.features .features-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-bottom: 50px;
+  margin-bottom: 0;
+}
+section.features .features-container .feature {
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+section.features .features-container .feature img {
+  background-color: #3b3054;
+  border-radius: 50%;
+  padding: 10px;
+  position: relative;
+  transform: translateY(50%);
+}
+section.features .features-container .feature .feature-text {
+  border-radius: 10px;
+  padding: 50px 15px 15px 15px;
+  background-color: #ffffff;
+}
+section.features .features-container .feature .feature-text > * {
+  text-align: center;
+}
+section.features .features-container .feature .feature-text h3 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+section.features .features-container .feature .feature-text p {
+  color: #bfbfbf;
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+
+section.get-started {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 3.125rem 1.5625rem;
+  position: relative;
+}
+section.get-started::before {
+  content: "";
+  position: absolute;
+  background-color: #3b3054;
+  background-image: url("./images/bg-boost-mobile.svg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100%;
+  z-index: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+section.get-started > * {
+  z-index: 2;
+}
+section.get-started h2 {
+  color: #ffffff;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+section.get-started a {
+  width: 50%;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+
+footer {
+  background-color: #F0F1F6;
+}
+
+.round-button {
+  display: inline-block;
+  text-align: center;
+  background-color: #2acfcf;
+  border-radius: 25px;
+  font-weight: bold;
+  color: white;
+  padding: 10px 20px;
+}
+
+/*# sourceMappingURL=styles.css.map */
