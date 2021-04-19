@@ -112,8 +112,8 @@ header {
 
 section.welcome {
     padding-top: 0.625em;
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 25px;
     overflow-x: hidden;
 
@@ -231,6 +231,7 @@ section.shortener-section {
             input {
                 padding: 15px;
                 border: none;
+                width: 100%;
 
                 &:focus {
                     outline: none;
@@ -238,6 +239,7 @@ section.shortener-section {
             }
 
             button {
+                width: 100%;
                 padding: .9375rem 0;
             }
         }
@@ -273,6 +275,7 @@ section.shortener-section {
 
             p.long-link {
                 position: relative;
+                // overflow: scroll;
                 padding: 1.0625rem;
             }
 
@@ -320,6 +323,10 @@ section.shortener-section {
 
                 span.divisor {
                     display: none;
+                }
+
+                p.long-link {
+                    overflow: visible;
                 }
 
                 .short-link {

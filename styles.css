@@ -134,8 +134,8 @@ header .nav-container nav ul li a {
 
 section.welcome {
   padding-top: 0.625em;
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 25px;
   overflow-x: hidden;
 }
@@ -243,11 +243,13 @@ section.shortener-section form#shortener fieldset > * {
 section.shortener-section form#shortener fieldset input {
   padding: 15px;
   border: none;
+  width: 100%;
 }
 section.shortener-section form#shortener fieldset input:focus {
   outline: none;
 }
 section.shortener-section form#shortener fieldset button {
+  width: 100%;
   padding: 0.9375rem 0;
 }
 @media screen and (min-width: 768px) {
@@ -319,6 +321,9 @@ section.shortener-section .shorted-links-container .link .button-container butto
   }
   section.shortener-section .shorted-links-container .link span.divisor {
     display: none;
+  }
+  section.shortener-section .shorted-links-container .link p.long-link {
+    overflow: visible;
   }
   section.shortener-section .shorted-links-container .link .short-link {
     text-align: right;
