@@ -34,10 +34,16 @@ button {
     cursor: pointer;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     font-size: 18px;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
+    overflow-y: hidden;
+    position: relative;
 }
 
 .container {
@@ -62,7 +68,7 @@ header {
     justify-content: space-between;
     position: relative;
 
-    
+
     .nav-container {
         i {
             font-size: 1.5em;
@@ -178,13 +184,13 @@ section.welcome {
             color: $veryDarkBlue;
             margin-bottom: 25px;
         }
-    
+
         p {
             color: $gray;
             line-height: 1.7;
             margin-bottom: 25px;
         }
-    
+
         a {
             padding: 15px 0;
             width: 50%;
@@ -220,7 +226,7 @@ section.welcome {
             }
         }
     }
-    
+
     @media screen and (min-width: 1380px) {
         overflow-x: inherit;
     }
@@ -575,7 +581,7 @@ footer {
     .social {
         display: flex;
         justify-content: center;
-    
+
         i {
             color: white;
             font-size: 30px;

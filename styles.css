@@ -65,10 +65,16 @@ button {
   cursor: pointer;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-size: 18px;
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
 }
 
 .container {
