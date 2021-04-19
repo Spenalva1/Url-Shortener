@@ -68,6 +68,7 @@ button {
 body {
   font-size: 18px;
   font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
 }
 
 .container {
@@ -92,7 +93,7 @@ header {
   justify-content: space-between;
   position: relative;
 }
-header i {
+header .nav-container i {
   font-size: 1.5em;
   margin-left: auto;
   cursor: pointer;
@@ -131,13 +132,45 @@ header .nav-container nav ul li a {
   color: white;
   font-size: 0.9rem;
 }
+@media screen and (min-width: 768px) {
+  header .nav-container {
+    padding: 0;
+    width: 100%;
+  }
+  header .nav-container i {
+    display: none;
+  }
+  header .nav-container nav {
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: transparent;
+  }
+  header .nav-container nav ul {
+    flex-direction: row;
+    border: none;
+  }
+  header .nav-container nav ul li a {
+    color: #bfbfbf;
+  }
+  header .nav-container nav ul li a:hover {
+    color: #35323e;
+  }
+  header .nav-container nav ul li a.round-button {
+    color: #ffffff;
+    padding: 0.9375rem 1.7rem;
+    margin-left: 2rem;
+  }
+}
 
 section.welcome {
   padding-top: 0.625em;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 25px;
-  overflow-x: hidden;
 }
 section.welcome > * {
   text-align: center;
@@ -173,6 +206,7 @@ section.welcome .welcome-text a {
   section.welcome {
     padding-top: 2em;
     position: relative;
+    align-items: flex-start;
   }
   section.welcome img {
     max-width: 500px;
@@ -182,7 +216,7 @@ section.welcome .welcome-text a {
     transform: translateY(-50%) translateX(25%);
   }
   section.welcome .welcome-text {
-    padding: 2em;
+    padding: 2em 0;
     align-items: flex-start;
     width: 55%;
   }
@@ -521,6 +555,9 @@ footer .social i:last-child {
 }
 .round-button:focus {
   outline: none;
+}
+.round-button:hover {
+  opacity: 0.5;
 }
 
 /*# sourceMappingURL=styles.css.map */
