@@ -5,11 +5,9 @@ const submitBtn = fieldset.querySelector('button');
 const input = form.querySelector('input[name="url"]');
 const linksContainer = document.querySelector('.shorted-links-container');
 const toast = document.querySelector('.toast');
-console.log(toast);
 
-
-const BTN_DEFAULT_MESSAGE = 'Shorten It!'
-const BTN_LOADING_MESSAGE = 'Loading...'
+const BTN_DEFAULT_MESSAGE = 'Shorten It!';
+const BTN_LOADING_MESSAGE = 'Loading';
 let links = [];
 let creatingLink = '';
 let copied = -1;
@@ -57,6 +55,7 @@ const displayLinks = () => {
 const startLoading = () => {
     fieldset.disabled = true;
     submitBtn.textContent = BTN_LOADING_MESSAGE;
+    submitBtn.classList.add('loading');
     if(pError.classList.contains('show')) {
         pError.classList.remove('show');
     }
@@ -67,6 +66,7 @@ const startLoading = () => {
 
 const stopLoading = () => {
     fieldset.disabled = false
+    submitBtn.classList.remove('loading');
     submitBtn.textContent = BTN_DEFAULT_MESSAGE;
 }
 
