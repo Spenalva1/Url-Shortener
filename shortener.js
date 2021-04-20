@@ -95,7 +95,7 @@ http_request.onreadystatechange = () => {
         }
         links.unshift(newLink);
         linksContainer.dispatchEvent(new CustomEvent('linksUpdated'));
-        showToast({message: 'Link shortened succesfully!', duration: 2500});
+        showToast({message: 'Link shortened succesfully!', duration: 3500});
         form.reset();
     }
 };

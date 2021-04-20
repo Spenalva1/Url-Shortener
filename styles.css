@@ -691,6 +691,7 @@ footer .social i:last-child {
 .toast {
   position: fixed;
   width: 90%;
+  text-align: center;
   z-index: 100;
   background-color: #00ab66;
   color: white;
@@ -703,6 +704,11 @@ footer .social i:last-child {
 }
 .toast.show {
   transform: translate(-50%, -50%);
+}
+@media screen and (min-width: 600px) {
+  .toast {
+    width: auto;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

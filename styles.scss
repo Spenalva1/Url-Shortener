@@ -756,6 +756,7 @@ footer {
 .toast {
   position: fixed;
   width: 90%;
+  text-align: center;
   z-index: 100;
   background-color: #00ab66;
   color: white;
@@ -768,5 +769,9 @@ footer {
 
   &.show {
     transform: translate(-50%, -50%);
+  }
+
+  @media screen and (min-width: 600px) {
+      width: auto;
   }
 }
