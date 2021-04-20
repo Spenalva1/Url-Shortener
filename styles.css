@@ -275,7 +275,7 @@ section.shortener-section form#shortener fieldset {
   grid-template-columns: 1fr;
   gap: 20px;
 }
-section.shortener-section form#shortener fieldset > * {
+section.shortener-section form#shortener fieldset > input, section.shortener-section form#shortener fieldset > button {
   border-radius: 10px;
   font-size: 1.2rem;
   height: 55px;
@@ -288,9 +288,29 @@ section.shortener-section form#shortener fieldset input {
 section.shortener-section form#shortener fieldset input:focus {
   outline: none;
 }
+section.shortener-section form#shortener fieldset input.error {
+  border: 2px solid red;
+}
+section.shortener-section form#shortener fieldset input.error::placeholder {
+  color: red;
+}
 section.shortener-section form#shortener fieldset button {
   width: 100%;
   padding: 0.9375rem 0;
+}
+section.shortener-section form#shortener fieldset:disabled button {
+  cursor: progress;
+  opacity: 0.5;
+}
+section.shortener-section form#shortener p.error-message {
+  display: none;
+  margin-top: 1em;
+  color: red;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+section.shortener-section form#shortener p.error-message.show {
+  display: block;
 }
 @media screen and (min-width: 768px) {
   section.shortener-section form#shortener {
@@ -642,6 +662,22 @@ footer .social i:last-child {
 }
 .round-button:hover {
   opacity: 0.5;
+}
+
+.toast {
+  position: fixed;
+  z-index: 100;
+  background-color: #00Ab66;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 100%);
+  transition: 0.5s ease;
+}
+.toast.show {
+  transform: translate(-50%, -50%);
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -29,6 +29,9 @@
   </head>
 
   <body>
+    <div class="toast">
+      <p>Link shortened successfully!</p>
+    </div>
     <div class="container">
       <header>
         <img src="./images/logo.svg" alt="Shortly">
@@ -64,6 +67,7 @@
               <input autocomplete="url" type="text" name="url" placeholder="Shorten a link here...">
               <button type="submit" class="round-button">Shorten It!</button>
             </fieldset>
+            <p class="error-message"></p>
           </form>
           <div class="shorted-links-container"></div>
         </section>

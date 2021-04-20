@@ -1,11 +1,29 @@
 const form = document.querySelector('#shortener');
+const pError = document.querySelector('.error-message');
+const fieldset = form.querySelector('fieldset');
+const submitBtn = fieldset.querySelector('button');
+const input = form.querySelector('input[name="url"]');
 const linksContainer = document.querySelector('.shorted-links-container');
+const toast = document.querySelector('.toast');
+console.log(toast);
+
+
+const BTN_DEFAULT_MESSAGE = 'Shorten It!'
+const BTN_LOADING_MESSAGE = 'Loading...'
 let links = [];
 let creatingLink = '';
 let copied = -1;
-http_request = new XMLHttpRequest();
+const http_request = new XMLHttpRequest();
 
 const getEndpoint = (url) => `https://api.shrtco.de/v2/shorten?url=${url}`;
+
+const showToast = ({message = 'Success', duration = 3000} = {}) => {
+    toast.textContent = message; 
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, duration);
+}
 
 const createShortedLink = (long, short, copied) => {
     return `<div class="link">
@@ -36,15 +54,49 @@ const displayLinks = () => {
     linksContainer.innerHTML = htmlLinks;
 }
 
+const startLoading = () => {
+    fieldset.disabled = true;
+    submitBtn.textContent = BTN_LOADING_MESSAGE;
+    if(pError.classList.contains('show')) {
+        pError.classList.remove('show');
+    }
+    if(input.classList.contains('error')) {
+        input.classList.remove('error');
+    }
+}
+
+const stopLoading = () => {
+    fieldset.disabled = false
+    submitBtn.textContent = BTN_DEFAULT_MESSAGE;
+}
+
+const displayError = (error) => {
+    input.classList.add('error');
+    pError.textContent = error;
+    pError.classList.add('show');
+    input.focus();
+}
+
 http_request.onreadystatechange = () => {
+    if(http_request.readyState  === 1) {
+        startLoading();
+    }    
     if(http_request.readyState  === 4) {
-        const resp = JSON.parse(http_request.response);
+        stopLoading();
+        const { ok, result, error_code } = JSON.parse(http_request.response);
+        if(!ok) {
+            let errorMessage = error_code === 2 ? 'Please add a valid URL.' : 'Link could not be shortened. Please try again.';
+            displayError(errorMessage);
+            return;
+        }
         const newLink = {
-            short: resp.result.short_link,
+            short: result.short_link,
             long: creatingLink,
         }
         links.unshift(newLink);
         linksContainer.dispatchEvent(new CustomEvent('linksUpdated'));
+        showToast({message: 'Link shortened succesfully!', duration: 2500});
+        form.reset();
     }
 };
 
@@ -59,7 +111,11 @@ const copyToClipboard = str => {
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    creatingLink = form.querySelector('input[name="url"]').value;
+    creatingLink = input.value;
+    if(creatingLink === '') {
+        displayError('Please add a link');
+        return;
+    }
     http_request.open('GET', getEndpoint(creatingLink), true);
     http_request.send();
 });

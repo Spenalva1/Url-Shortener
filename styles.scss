@@ -268,7 +268,7 @@ section.shortener-section {
             grid-template-columns: 1fr;
             gap: 20px;
 
-            & > * {
+            & > input, & > button {
                 border-radius: 10px;
                 font-size: 1.2rem;
                 height: 55px;
@@ -282,11 +282,39 @@ section.shortener-section {
                 &:focus {
                     outline: none;
                 }
+
+                &.error {
+                    border: 2px solid red;
+
+                    &::placeholder {
+                        color: red;
+                    }
+                }
             }
 
             button {
                 width: 100%;
                 padding: .9375rem 0;
+            }
+
+            &:disabled {
+                
+                button {
+                    cursor: progress;
+                    opacity: 0.5;
+                }
+            }
+        }
+
+        p.error-message {
+            display: none;
+            margin-top: 1em;
+            color: red;
+            font-style: italic;
+            font-size: 0.9rem;
+
+            &.show {
+                display: block;
             }
         }
 
@@ -553,8 +581,6 @@ section.get-started {
         transform: translate(-50%);
     }
 
-
-
     & > * {
         z-index: 2;
     }
@@ -699,5 +725,22 @@ footer {
 
     &:hover {
         opacity: 0.5;
+    }
+}
+
+.toast {
+    position: fixed;
+    z-index: 100;
+    background-color: #00Ab66;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 100%);
+    transition: 0.5s ease;
+    
+    &.show {
+        transform: translate(-50%, -50%);
     }
 }
