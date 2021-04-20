@@ -417,14 +417,27 @@ section.features .features-container {
   grid-template-columns: 1fr;
   padding-bottom: 50px;
   margin-bottom: 0;
+  position: relative;
+}
+section.features .features-container::after {
+  content: "";
+  position: absolute;
+  background-color: #2acfcf;
+  width: 8px;
+  height: 70%;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }
 section.features .features-container .feature {
   width: 100%;
-  max-width: 350px;
+  max-width: 250px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 5;
 }
 section.features .features-container .feature img {
   background-color: #3b3054;
@@ -449,6 +462,39 @@ section.features .features-container .feature .feature-text p {
   color: #bfbfbf;
   line-height: 1.7;
   font-size: 0.9rem;
+}
+@media screen and (min-width: 768px) {
+  section.features .features-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+  section.features .features-container::after {
+    width: 70%;
+    height: 8px;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  section.features .features-container .feature {
+    align-items: flex-start;
+    max-width: 300px;
+  }
+  section.features .features-container .feature:nth-child(2) {
+    margin-top: 2rem;
+  }
+  section.features .features-container .feature:nth-child(3) {
+    margin-top: 4rem;
+  }
+  section.features .features-container .feature img {
+    margin-left: 2rem;
+  }
+  section.features .features-container .feature .feature-text {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+  }
+  section.features .features-container .feature .feature-text > * {
+    text-align: left;
+  }
 }
 
 section.get-started {
@@ -485,6 +531,11 @@ section.get-started a {
   width: 50%;
   margin: 0 auto;
   padding: 15px 0;
+}
+@media screen and (min-width: 768px) {
+  section.get-started {
+    padding: 4.375rem 1.5625rem;
+  }
 }
 
 footer {
@@ -543,11 +594,38 @@ footer .social {
 }
 footer .social i {
   color: white;
-  font-size: 30px;
-  margin-right: 25px;
+  font-size: 25px;
+  margin-right: 20px;
 }
 footer .social i:last-child {
   margin: 0;
+}
+@media screen and (min-width: 768px) {
+  footer {
+    grid-template-columns: 0.75fr 2fr 0.75fr;
+  }
+  footer .logo {
+    text-align: left;
+  }
+  footer .links-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+  footer .links-container .link-group {
+    margin: 0;
+  }
+  footer .links-container .link-group h4 {
+    margin-bottom: 1rem;
+  }
+  footer .links-container .link-group li a {
+    font-size: 0.8rem;
+    padding: 0.5375rem;
+    margin-bottom: 0.5rem;
+  }
+  footer .social {
+    padding: 0;
+    justify-content: flex-end;
+  }
 }
 
 .round-button {
